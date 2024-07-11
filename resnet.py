@@ -31,7 +31,7 @@ class Block(nn.Module):
                                out_channels=out_channel,
                                kernel_size=1,
                                stride=1,
-                               padding=0, 
+                               padding=0, # no padding for 1x1 convolution 
                                bias=False)
         self.bn1 = norm_layer(out_channel)
         self.conv2 = nn.Conv2d(in_channels=out_channel, 
@@ -45,6 +45,7 @@ class Block(nn.Module):
                                out_channels= out_channel * self.expansion,
                                kernel_size=1,
                                stride=1,
+                               padding=0, # no padding for 1x 1 convolution
                                bias=False)
         self.bn3 = norm_layer(self.expansion * out_channel)
 
